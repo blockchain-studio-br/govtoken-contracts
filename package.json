@@ -8,27 +8,30 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "core-js": "^3.1.4",
     "cpf_cnpj": "^0.2.0",
     "crypto-js": "^3.1.9-1",
-    "ethers": "^4.0.32"
+    "ethers": "^4.0.32",
+    "openzeppelin-solidity": "blockchain-studio-br/openzeppelin-solidity#3fb98be63b078f5527de952341e1d91244c1e234"
   },
   "scripts": {
-    "tesst": "NODE_ENV=test mocha --recursive --require ./test/helpers/testNullCompiler.js --require babel-register test -t 10000 --grep \"contracts test\"",
-    "test": "./node_modules/.bin/mocha --compilers js:@babel/register",
+    "test": "NODE_ENV=test mocha --recursive --require @babel/register test -t 10000",
     "build": "waffle .waffle.js",
-    "build:test": "yarn contracts:build && yarn contracts:test"
+    "build:test": "yarn build && yarn test"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@babel/node": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.4",
     "chai": "^4.2.0",
     "ethereum-waffle": "^2.0.12",
     "ganache-core": "^2.5.6",
     "mocha": "^6.1.4",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "pryjs": "^1.0.3"
   },
   "engines": {
     "node": ">=10.9"
