@@ -1,0 +1,36 @@
+{
+  "name": "govtoken-contracts",
+  "version": "0.0.1",
+  "description": "Solidity contracts to GovToken Application",
+  "main": "index.js",
+  "repository": "git@bitbucket.org:investtools/govtoken-contracts.git",
+  "author": "Fabiano <fabiano.paula.martins@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "cpf_cnpj": "^0.2.0",
+    "crypto-js": "^3.1.9-1",
+    "ethers": "^4.0.32"
+  },
+  "scripts": {
+    "tesst": "NODE_ENV=test mocha --recursive --require ./test/helpers/testNullCompiler.js --require babel-register test -t 10000 --grep \"contracts test\"",
+    "test": "./node_modules/.bin/mocha --compilers js:@babel/register",
+    "build": "waffle .waffle.js",
+    "build:test": "yarn contracts:build && yarn contracts:test"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "ethereum-waffle": "^2.0.12",
+    "ganache-core": "^2.5.6",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.1"
+  },
+  "engines": {
+    "node": ">=10.9"
+  }
+}
